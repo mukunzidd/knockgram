@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from './components/Title';
+import '../src/firebase/config';
 
 function App() {
   return (
