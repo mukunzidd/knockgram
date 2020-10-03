@@ -3,16 +3,17 @@ import 'firebase/storage';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDsMol3YNF73rC2qMPEIe2Ygo9B6XEhHYA',
-  authDomain: 'me2you-854e9.firebaseapp.com',
-  databaseURL: 'https://me2you-854e9.firebaseio.com',
-  projectId: 'me2you-854e9',
-  storageBucket: 'me2you-854e9.appspot.com',
-  messagingSenderId: '264856254213',
-  appId: '1:264856254213:web:3976592bc98e2df639e96c',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_BD_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
 
 export const projectFirestore = firebase.firestore();
 export const projectStorage = firebase.storage();
+export const projectTimestamp = firebase.firestore.FieldValue.serverTimestamp;

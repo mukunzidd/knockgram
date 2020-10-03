@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Title from './components/Title';
-import '../src/firebase/config';
+import { ImgUploadForm } from './components/ImgUploadForm';
+import { ImgGrid } from './components/ImgGrid';
+import { ImgModal } from './components/ImgModal';
 
 function App() {
+  const [selectedImg, setSelecteImg] = useState(null);
   return (
     <div className="App">
       <Title />
+      <ImgUploadForm />
+      <ImgGrid setSelectedImg={setSelecteImg} />
+      {selectedImg && (
+        <ImgModal selectedImg={selectedImg} setSelectedImg={setSelecteImg} />
+      )}
     </div>
   );
 }
